@@ -2,32 +2,32 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../actions';
-import ProductListTitle from './ProductListTitle';
-import ProductListTable from './ProductListTable';
+import CustomerListTitle from './CustomerListTitle';
+import CustomerListTable from './CustomerListTable';
 import ModalConfirm from './ModalConfirm';
-import ProductModalEdit from './ProductModalEdit';
+import CustomerModalEdit from './CustomerModalEdit';
 import { getItemRemove } from '../reducers';
 import { getItemEdit } from '../reducers/index';
 
 export class List extends React.Component {
   componentDidMount() {
-    this.fetchData();
+    this.fetchDate();
   }
 
-  fetchData() {
+  fetchDate() {
     const { fetchList } = this.props;
-    fetchList('products');
+    fetchList('customers');
   }
 
   render() {
     const { openModal, lists, route, modals, closeModal, removeItem, itemRemove, itemEdit } = this.props;
     return (
       <div>
-        <ProductListTitle
+        <CustomerListTitle
           callback={openModal}/>
-        <ProductListTable
+        <CustomerListTable
           callback={openModal}
-          items={lists.products.items}
+          items={lists.customers.items}
           title={route.path}
         />
         <ModalConfirm
@@ -37,17 +37,17 @@ export class List extends React.Component {
             closeModal('remove')
           }}
           onRemove={() => {
-            removeItem('products', modals.remove.id)
+            removeItem('customers', modals.remove.id)
           }}
         />
-        <ProductModalEdit
+        <CustomerModalEdit
           show={modals.edit.show}
           item={itemEdit}
           onClose={() => {
             closeModal('edit')
           }}
         />
-        <ProductModalEdit
+        <CustomerModalEdit
           show={modals.create.show}
           item={itemEdit}
           onClose={() => {

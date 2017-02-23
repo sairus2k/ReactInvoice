@@ -1,11 +1,11 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 
-export class InvoiceList extends React.Component {
-  render() {
-    return (
-      <div>
-        InvoiceList component
-      </div>
-    )
-  }
-}
+
+const InvoiceList = () => (
+  <div>
+    <h1>Invoice list <Button>Create</Button></h1>
+  </div>
+);
+
+export default InvoiceList;

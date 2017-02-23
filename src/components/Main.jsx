@@ -1,4 +1,5 @@
 import React from 'react';
+import { Grid } from 'react-bootstrap';
 import { NavBar } from './NavBar';
 
 export class Main extends React.Component {
@@ -6,9 +7,9 @@ export class Main extends React.Component {
     return (
       <div>
         <NavBar/>
-        <div className="container">
+        <Grid>
           {this.props.children}
-        </div>
+        </Grid>
       </div>
     )
   }

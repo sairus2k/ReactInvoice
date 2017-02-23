@@ -1,12 +1,16 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 
 import router from './router';
+import * as actions from './actions/lists';
 
 import 'react-select/dist/react-select.css';
 
+const store = require('./store/configureStore').configure();
+
 render(
-  <div>
+  <Provider store={store}>
     {router}
-  </div>,
+  </Provider>,
   document.getElementById('app-root'));

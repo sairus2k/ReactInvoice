@@ -149,7 +149,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.route('/api/customers')
   .get(function(req, res) {
     Customer.findAll().then(function(customers) {
-      res.json(customers);
+      setTimeout(() => {res.json(customers)}, 1000)
     })
   })
   .post(function(req, res) {
